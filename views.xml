@@ -1,0 +1,93 @@
+<odoo>
+
+    <record model="ir.actions.act_window" id="equipo_list_action">
+        <field name="name">Equipo</field>
+        <field name="res_model">equipo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="jugador_list_action">
+        <field name="name">Jugadores</field>
+        <field name="res_model">jugador</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Equipos de Balonmano" id="handball_menu_root"/>
+    
+    <menuitem name="Equipos" id="handball_menu_equipo" parent="handball_menu_root"/>
+    <menuitem name="Jugadores" id="handball_menu_jugador" parent="handball_menu_root"/>
+    
+
+    <menuitem name="Listado de equipo" id="handball_list_equipo" parent="handball_menu_equipo" action="equipo_list_action"/>
+    <menuitem name="Listado de jugador" id="handball_list_jugador" parent="handball_menu_jugador" action="jugador_list_action"/>
+
+
+
+    <!-- jugador form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">jugador.view.form</field>
+        <field name="model">jugador</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="apellidos"/>
+                        <field name="fecha_nacimiento"/>
+                        <field name="posicion"/>
+                        <field name="equipo_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record> 
+
+    <!-- jugador tree view -->
+    <record id="model_name_view_tree" model="ir.ui.view">
+        <field name="name">jugador.view.tree</field>
+        <field name="model">jugador</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="fecha_nacimiento"/>
+                <field name="posicion"/>
+                <field name="equipo_id"/>
+            </tree>
+        </field>
+    </record>    
+     
+    <!-- equipo form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">equipo.view.form</field>
+        <field name="model">equipo</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="ciudad"/>
+                        <field name="fecha_fundacion"/>
+                        <field name="jugadores"/>
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- equipo tree view -->
+    <record id="model_name_view_tree" model="ir.ui.view">
+        <field name="name">equipo.view.tree</field>
+        <field name="model">equipo</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="ciudad"/>
+                <field name="fecha_fundacion"/>
+                <field name="jugadores"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
